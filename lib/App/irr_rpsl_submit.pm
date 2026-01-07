@@ -118,7 +118,7 @@ sub new ($class, %args) {
 	$self;
 	}
 
-=item run
+=item * run
 
 =cut
 
