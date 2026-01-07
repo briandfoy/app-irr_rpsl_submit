@@ -143,6 +143,12 @@ sub _exit ($self, $status = EX_SUCCESS) {
 	CORE::exit($status);
 	}
 
+=item * help_message
+
+Returns the text for the help message
+
+=cut
+
 sub help_message {
 	<<~'HELP';
 		Read RPSL submissions from stdin and return a response on stdout.
@@ -173,13 +179,29 @@ sub help_message {
 		HELP
 	}
 
+=item * output(STRINGS)
+
+Send each item in STRINGS to the output.
+
+=cut
+
 sub output ($self, @messages) {
 	print {$self->output_fh} @messages;
 	}
 
+=item * output_fh()
+
+Returns the filehandle for the output.
+
+=cut
+
 sub output_fh ($self) {
 	$self->{output_fh};
 	}
+
+=item * process_options
+
+=cut
 
 sub process_options ($self, $args) {
 	state $rc = require Getopt::Long;
@@ -238,6 +260,12 @@ sub process_options ($self, $args) {
 
 	return $opts;
 	}
+
+=item * version_message
+
+Returns the string for the version message
+
+=cut
 
 sub version_message ($self) {
 	state $rc = require File::Basename;
