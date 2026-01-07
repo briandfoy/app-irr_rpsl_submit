@@ -16,3 +16,4 @@ nytprof
 \.gitattributes\b
 
 .downstream.json
+scratch/
