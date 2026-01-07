@@ -124,9 +124,9 @@ sub new ($class, %args) {
 
 sub run ($class, @args) {
 	my $args_to_new = ref $args[0] eq ref {} ? shift @args : {};
-	
+
 	my $irr_rpsl_submit = $class->new($args_to_new->%*);
-	
+
 	my $opts = $irr_rpsl_submit->process_options(\@args);
 
 	if( $opts->{help} ) {
@@ -180,7 +180,7 @@ sub output ($self, @messages) {
 sub output_fh ($self) {
 	$self->{output_fh};
 	}
-	
+
 sub process_options ($self, $args) {
 	state $rc = require Getopt::Long;
 	Getopt::Long::Configure(qw(no_ignore_case));
@@ -213,7 +213,7 @@ sub process_options ($self, $args) {
 		$opts->{debug} = $ENV{IRR_RPSL_SUBMIT_DEBUG};
 		}
 
-	
+
 	if( ! defined $opts->{host} and exists $ENV{IRR_RPSL_SUBMIT_HOST} ) {
 		$opts->{'host'} = $ENV{IRR_RPSL_SUBMIT_HOST};
 		}
@@ -235,7 +235,7 @@ sub process_options ($self, $args) {
 			$opts->{'url'}
 			}
 		};
-		
+
 	return $opts;
 	}
 
@@ -268,7 +268,7 @@ brian d foy, C<< <briandfoy@pobox.com> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright © 2025, brian d foy, All Rights Reserved.
+Copyright © 2025-2026, brian d foy, All Rights Reserved.
 
 You may redistribute this under the terms of the Artistic License 2.0.
 
